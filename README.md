@@ -79,6 +79,13 @@ List the ready features here:
 -   Use your personal UID and Password for your db connection and make sure you remove the brackets currently in place.
 
 </details>
+<!--Download the csv and import into MySQL Workbench
+Use Existing Table: change from `efmigrationhistory` to correct table
+Click "ok" for Index out of range
+Click the wrench &#x1F527;
+Switch the drop down to "TEXT" instead of ID
+Configure import settings: change field separator to , and line separator to LF
+null and NULL = yes -->
 
 <details>
 <summary> Finish Setup </summary>

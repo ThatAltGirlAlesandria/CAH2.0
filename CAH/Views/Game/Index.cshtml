@@ -3,11 +3,22 @@
 }
 @using CAH.Models;
 
+
+@{
+    Random random = new Random();
+    int randomIndex = random.Next(Model.Count);
+    string randomText = Model[randomIndex].Text;
+}
+
 <h1>Censorship Against Humanity</h1>
+
+<ul>
+    <li>@randomText</li>
+</ul>
 
 <ul>
 @foreach (WhiteCards whiteCards in Model)
 {
-  <li>@whiteCards.WhiteCardsId</li>
+  <li>@whiteCards.Text</li>
 }
 </ul>

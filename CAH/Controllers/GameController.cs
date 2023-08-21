@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using CAH.Models;
 
-
 namespace CAH.Controllers
 {
     public class GameController : Controller
