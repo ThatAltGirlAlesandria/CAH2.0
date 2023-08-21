@@ -2,9 +2,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CAH.Models
 {
-    public class BlackCard
+    public class BlackCards
     {
-        public int Id { get; set; }
+        public int BlackCardsId { get; set; }
         public string Text { get; set; }
     }
 }

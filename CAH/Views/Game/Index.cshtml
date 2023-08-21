@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+@using CAH.Models;
+
+<h1>Censorship Against Humanity</h1>
+
+<ul>
+@foreach (WhiteCards whiteCards in Model)
+{
+  <li>@whiteCards.WhiteCardsId</li>
+}
+</ul>
