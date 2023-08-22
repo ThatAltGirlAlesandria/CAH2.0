@@ -23,9 +23,13 @@
 <br><br>
 <h2>Random White Card</h2>
 <div class="whiteCard">
-<p class="random-card">@randomWhiteCard.Text</p>
+    <p class="random-card">@randomWhiteCard.Text</p>
+    @if (TempData["RandomWhiteCard"] != null)
+    {
+          <p class="random-card">@TempData["RandomWhiteCard"]</p>   
+    }
 </div>
-@Html.ActionLink("Add another white card", "Index", "Game")
+@Html.ActionLink("Add another white card", "Create", "Game")
 
 <br><br><br>
 <h2>White Cards</h2>

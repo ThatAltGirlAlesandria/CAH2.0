@@ -5,6 +5,7 @@ namespace CAH.Models
     public class CAHContext : DbContext
     {
         public DbSet<WhiteCards> WhiteCards { get; set; }
+        public DbSet<RandomWhiteCards> RandomWhiteCard { get; set; }
         public DbSet<BlackCards> BlackCards { get; set; }
         // public DbSet<Player> Players { get; set; }
         // public DbSet<Hand> Hands { get; set; }

@@ -1,0 +1,8 @@
+<div id="random-white-card">
+    @ViewBag.RandomWhiteCard
+</div>
+
+@using (Html.BeginForm("Create", "Game", FormMethod.Post))
+{
+    <button type="submit">Generate New Card</button>
+}

@@ -9,5 +9,6 @@ namespace CAH.ViewModels
     {
         public List<WhiteCards> WhiteCards { get; set; }
         public List<BlackCards> BlackCards { get; set; }
+        public List<RandomWhiteCards> RandomWhiteCard { get; set; }
     }
 }
