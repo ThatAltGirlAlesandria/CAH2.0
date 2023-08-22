@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+
+<div id="random-white-card">
+    <p class="whiteCard">@ViewBag.RandomWhiteCard</p>
+    @if (TempData["RandomWhiteCard"] != null)
+    {
+        <p class="whiteCard">@TempData["RandomWhiteCard"]</p>
+    }
+</div>
+

@@ -22,17 +22,30 @@
 
 <br><br>
 <h2>Random White Card</h2>
-<div class="whiteCard">
-    <p class="random-card">@randomWhiteCard.Text</p>
-    @if (TempData["RandomWhiteCard"] != null)
-    {
-          <p class="random-card">@TempData["RandomWhiteCard"]</p>   
-    }
+
+<div class="whiteCardContainer">
+  <div class="whiteCard">
+      <p class="random-card">@randomWhiteCard.Text</p>
+  </div>
+
+
+  @if (TempData["RandomWhiteCard"] != null)
+  {
+      <div class="whiteCard">
+        <p class="random-card">@TempData["RandomWhiteCard"]</p> 
+      </div>  
+  }
+
 </div>
-@Html.ActionLink("Add another white card", "Create", "Game")
+
+@using (Html.BeginForm("Create", "Game", FormMethod.Post))
+{
+  <button type="submit">Generate second card</button>
+}
+<!-- @Html.ActionLink("Add another white card", "Create"); -->
 
 <br><br><br>
-<h2>White Cards</h2>
+<!-- <h2>White Cards</h2>
 @foreach (WhiteCards whiteCards in Model.WhiteCards)
 {
   <li>@whiteCards.Text</li>
@@ -44,4 +57,4 @@
 @foreach (BlackCards blackCards in Model.BlackCards)
 {
   <li>@blackCards.Text</li>
-}
+} -->
