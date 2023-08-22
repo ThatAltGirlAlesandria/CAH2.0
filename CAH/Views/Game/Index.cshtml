@@ -1,24 +1,38 @@
 @{
   Layout = "_Layout";
 }
+
 @using CAH.Models;
 
+@model CAH.ViewModels.CardsViewModel;
 
 @{
-    Random random = new Random();
-    int randomIndex = random.Next(Model.Count);
-    string randomText = Model[randomIndex].Text;
+  Random random = new Random();
+  var randomWhiteCard = Model.WhiteCards[random.Next(Model.WhiteCards.Count)];
+  var randomBlackCard = Model.BlackCards[random.Next(Model.BlackCards.Count)];
 }
 
 <h1>Censorship Against Humanity</h1>
 
-<ul>
-    <li>@randomText</li>
-</ul>
+<br><br>
+<h2>Random White Card</h2>
+<p>@randomWhiteCard.Text</p>
 
-<ul>
-@foreach (WhiteCards whiteCards in Model)
+<br><br>
+<h2>Random Black Card</h2>
+<p>@randomBlackCard.Text</p>
+
+<br><br><br>
+<h2>White Cards</h2>
+@foreach (WhiteCards whiteCards in Model.WhiteCards)
 {
   <li>@whiteCards.Text</li>
 }
-</ul>
+
+<br><br><br>
+<h2>Black Cards</h2>
+
+@foreach (BlackCards blackCards in Model.BlackCards)
+{
+  <li>@blackCards.Text</li>
+}

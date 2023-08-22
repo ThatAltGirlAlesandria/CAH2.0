@@ -1,5 +1,3 @@
-I changed something so I could push
-
 # Censorship Against Humanity
 > Outline a brief description of your project.
 > Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
@@ -217,6 +215,8 @@ Please contact either<br>
 [eva.j.kemp@gmail.com](mailto:eva.j.kemp@gmail.com?subject=Hello%20Eva,&body=Nice%20job!%20), 
 
 [jase.grable@gmail.com](mailto:jase.grable@gmail.com.com?subject=Hello%20Jase,&body=Nice%20job!%20)
+
+[iamalion@gmail.com](mailto:iamalion@gmail.com.com?subject=Hello%20Lindsay,&body=Nice%20job!%20)
 
 with any the following:
 
