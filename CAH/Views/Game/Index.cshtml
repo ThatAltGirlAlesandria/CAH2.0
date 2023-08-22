@@ -15,17 +15,23 @@
 <h1>Censorship Against Humanity</h1>
 
 <br><br>
-<h2>Random Black Card</h2>
+
+<h2 id="card-h2">Random Black Card</h2>
 <div class="blackCard">
-  <p class="random-card">@randomBlackCard.Text</p>
+  <!-- <p class="random-card">@randomBlackCard.Text</p> --> 
+  <!-- lmw comment out above -->
+  <p class="random-card">@ViewBag.initialBlackCard</p>
 </div>
 
+
 <br><br>
-<h2>Random White Card</h2>
+<h2 id="card-h2">Your Cards</h2>
 
 <div class="whiteCardContainer">
   <div class="whiteCard">
-      <p class="random-card">@randomWhiteCard.Text</p>
+      <!-- <p class="random-card">@randomWhiteCard.Text</p> -->
+      <!-- lmw comment out above -->
+      <p class="random-card">@ViewBag.InitialWhiteCard</p>
   </div>
 
 

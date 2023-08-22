@@ -11,57 +11,46 @@ namespace CAH.Controllers
     public class GameController : Controller
     {
         private readonly CAHContext _db;
+        private string initialBlackCard; //lmw add
+        private string initialWhiteCard; //lmw add
         public GameController (CAHContext db)
         {
             _db = db;
+            initialBlackCard = _db.BlackCards.FirstOrDefault()?.Text; //lmw add
+            initialWhiteCard = _db.WhiteCards.FirstOrDefault()?.Text; //lmw add
         }
 
-// public ActionResult Index()
-// {
-//     List<WhiteCards> whiteCards = _db.WhiteCards.ToList();
-//     List<BlackCards> blackCards = _db.BlackCards.ToList();
-//     List<RandomWhiteCards> randomWhiteCard = _db.RandomWhiteCard.ToList();
-    
-//     CardsViewModel viewModel = new CardsViewModel
-//     {
-//         WhiteCards = whiteCards,
-//         BlackCards = blackCards,
-//     };
 
-//     if (randomWhiteCard.Count > 0) // Check if the list is not empty
-//     {
-//         Random random = new Random();
-//         var randomWhiteCards = randomWhiteCard[random.Next(randomWhiteCard.Count)].Text;
-//         ViewData["RandomWhiteCard"] = randomWhiteCards;
-//     }
-
-//     return View(viewModel);
-// }
-
-public ActionResult Index()
-{
-    List<WhiteCards> whiteCards = _db.WhiteCards.ToList();
-    List<BlackCards> blackCards = _db.BlackCards.ToList();
-    List<RandomWhiteCards> randomWhiteCard = _db.RandomWhiteCard.ToList();
-    
-    CardsViewModel viewModel = new CardsViewModel
+    public ActionResult Index()
     {
-        WhiteCards = whiteCards,
-        BlackCards = blackCards,
-    };
+        List<WhiteCards> whiteCards = _db.WhiteCards.ToList();
+        List<BlackCards> blackCards = _db.BlackCards.ToList();
+        // List<RandomWhiteCards> randomWhiteCard = _db.RandomWhiteCard.ToList();
+        //lmw comment out above^
+        
+        CardsViewModel viewModel = new CardsViewModel
+        {
+            WhiteCards = whiteCards,
+            BlackCards = blackCards,
+        };
+        ViewBag.InitialBlackCard = initialBlackCard; //lmw add
+        ViewBag.InitialWhiteCard = initialWhiteCard; //lmw add
 
-    if (randomWhiteCard.Count > 0) 
-    {
-        Random random = new Random();
-        var randomWhiteCards = randomWhiteCard[random.Next(randomWhiteCard.Count)].Text;
-        ViewData["RandomWhiteCard"] = randomWhiteCards;
+        // if (randomWhiteCard.Count > 0) 
+        // {
+        //     Random random = new Random();
+        //     var randomWhiteCards = randomWhiteCard[random.Next(randomWhiteCard.Count)].Text;
+        
+            // ViewData["RandomWhiteCard"] = initialWhiteCard;
+            // lmw comment out above^
+
+        return View(viewModel);
     }
 
-    return View(viewModel);
-}
-
+    [HttpPost]
     public ActionResult Create()
     {
+
         var existingRandomWhiteCard = TempData["RandomWhiteCard"]?.ToString();
         List<WhiteCards> whiteCard = _db.WhiteCards.ToList();
         Random random = new Random();
@@ -70,7 +59,7 @@ public ActionResult Index()
 
         ViewBag.RandomWhiteCard = existingRandomWhiteCard;
 
-        return View(Index());
+        return RedirectToAction("Index");
     }
 
         public ActionResult Details(int Id)
