@@ -8,19 +8,24 @@
 
 @{
   Random random = new Random();
-  var randomWhiteCard = Model.WhiteCards[random.Next(Model.WhiteCards.Count)];
   var randomBlackCard = Model.BlackCards[random.Next(Model.BlackCards.Count)];
+  var randomWhiteCard = Model.WhiteCards[random.Next(Model.WhiteCards.Count)];
 }
 
 <h1>Censorship Against Humanity</h1>
 
 <br><br>
-<h2>Random White Card</h2>
-<p>@randomWhiteCard.Text</p>
+<h2>Random Black Card</h2>
+<div class="blackCard">
+  <p class="random-card">@randomBlackCard.Text</p>
+</div>
 
 <br><br>
-<h2>Random Black Card</h2>
-<p>@randomBlackCard.Text</p>
+<h2>Random White Card</h2>
+<div class="whiteCard">
+<p class="random-card">@randomWhiteCard.Text</p>
+</div>
+@Html.ActionLink("Add another white card", "Index", "Game")
 
 <br><br><br>
 <h2>White Cards</h2>

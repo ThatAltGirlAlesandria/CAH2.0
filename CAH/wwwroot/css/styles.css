@@ -1,0 +1,71 @@
+
+.whiteCard {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 2.5in;
+    height: 3.5in;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.blackCard {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 2.5in;
+    height: 3.5in;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.random-card {
+    font-size: 18px;
+    font-weight: bold;
+    /* color: #333; */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.white-cards {
+    list-style-type: none;
+    padding: 0;
+}
+
+.white-cards li {
+    font-size: 16px;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.black-cards {
+    list-style-type: none;
+    padding: 0;
+}
+
+.black-cards li {
+    font-size: 16px;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    background-color: black;
+    color: white;
+}

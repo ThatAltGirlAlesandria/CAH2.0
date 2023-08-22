@@ -1,9 +1,8 @@
 # Censorship Against Humanity
-> Outline a brief description of your project.
-> Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
+> Censorship Against Humanity is a censored version of Cards Against Humanity. In its current form, it's a one person game wherein a user can randomly generate a black card and a white card. Black cards have 1-3 blank spaces which are intended to be filled in with the text of the white card. 
 
 ## Authors
-Alesandria, Casey, Eva, Jase, Lindsay, Sage
+Alesandria Wild, Casey Hill, Eva Kemp, Jase Grable, Lindsay Warr, Sage Paden
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -28,9 +27,9 @@ Alesandria, Casey, Eva, Jase, Lindsay, Sage
 
 
 ## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
+- C#/.NET
+- AspNet Core
+- 
 
 
 ## Features
