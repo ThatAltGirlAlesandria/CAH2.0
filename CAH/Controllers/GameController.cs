@@ -17,12 +17,12 @@ namespace CAH.Controllers
         }
 
         public ActionResult Index()
-        
+        {
             List<WhiteCards> whiteCards = _db.WhiteCards.ToList();
-            
+            List<BlackCards> blackCards = _db.BlackCards.ToList();
 
             Random random = new Random();
-            
+            var randomWhiteCard1 = whiteCards[random.Next(whiteCards.Count)].Text;
             var randomWhiteCard2 = whiteCards[random.Next(whiteCards.Count)].Text;
             var randomBlackCard = blackCards[random.Next(blackCards.Count)].Text;
 
@@ -33,8 +33,8 @@ namespace CAH.Controllers
                 BlackCard = randomBlackCard,
             };
 
-            ViewBag.BlackCard = randomBlackCard;
-            ViewBag.WhiteCard1 = randomWhiteCard1;
+            // ViewBag.BlackCard = randomBlackCard;
+            // ViewBag.WhiteCard1 = randomWhiteCard1;
 
             return View(viewModel);
         }

@@ -71,15 +71,16 @@ h1 {
     background-color: black;
 }
 
-#game-menu-option:hover a {
+/* #game-menu-option:hover a {
     color: white;
     background-color: black;
-}
+} */
+
 /* try this */
-/* #game-menu-option:hover a {
+#game-menu-option:hover a {
     color: black;
     background-color: white;
-} */
+}
 
 #card-h2 {
     text-align: center; 
