@@ -11,9 +11,17 @@
 <br><br>
 
 <!-- <h2 id="card-h2">Random Black Card</h2> -->
-<div class="blackCard">
-  <p class="random-card">@ViewBag.InitialBlackCard</p>
+<div class="blackCardContainer">
+  <div class="blackCard">
+    <p class="random-card">@ViewBag.InitialBlackCard</p>
+  </div>
+  <div class="winningCardContainer hidden">
+    <div class="winningCard">
+    <p class="random-card" id="winningCardContent"></p>
+    </div>
+  </div>
 </div>
+
 
 
 <br><br>
@@ -52,7 +60,9 @@
   </div>
 </div>
 
-<button onclick="showNextWhiteCard()">Show another white card</button>
+<button id="showAnotherButton" onclick="showNextWhiteCard()">Draw another white card</button>
+<h2 id="pickWinner" class="hidden">Choose a winning card by clicking on your favorite.</h2>
+<button class="hidden" id="newGameButton">@Html.ActionLink("Start Another Game", "Index", "Game")</button>
 
 <script>
 
@@ -67,12 +77,17 @@ function selectWinner() {
   whiteCardIds.forEach(cardId => {
     cardId.addEventListener("click", function() {
       cardId.classList.add("winner");
-
+      document.getElementById("card-h2").classList.add("hidden");
+      document.getElementById("pickWinner").classList.add("hidden");
       whiteCardIds.forEach(otherCardId => {
-        if (otherCardId !== cardId) {
           otherCardId.classList.add("hidden");
-        }
-      });  
+      }); 
+      
+      document.getElementById("showAnotherButton").classList.add("hidden");
+      // document.getElementById("pickWinner").classList.remove("hidden");
+      document.querySelector(".winningCardContainer").classList.remove("hidden");
+      document.getElementById("winningCardContent").textContent = cardId.querySelector(".random-card").textContent;
+      
     });
   });
 }
@@ -90,6 +105,12 @@ function showNextWhiteCard() {
     var whiteCardContainer = whiteCardContainers[nextWhiteCardIndex];
     whiteCardContainer.classList.remove("hidden");
     nextWhiteCardIndex++;
+
+    if (nextWhiteCardIndex === whiteCardContainers.length) {
+      document.getElementById("showAnotherButton").classList.add("hidden");
+      document.getElementById("pickWinner").classList.remove("hidden");
+      document.getElementById("newGameButton").classList.remove("hidden"); 
+    } 
   }
 }
 </script>

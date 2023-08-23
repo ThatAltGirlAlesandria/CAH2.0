@@ -45,6 +45,20 @@ CREATE TABLE `blackcards` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `randomwhitecard`
+--
+
+DROP TABLE IF EXISTS `randomwhitecard`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `randomwhitecard` (
+  `RandomWhiteCardsId` int NOT NULL AUTO_INCREMENT,
+  `Text` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  PRIMARY KEY (`RandomWhiteCardsId`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `whitecards`
 --
 
@@ -68,4 +82,4 @@ CREATE TABLE `whitecards` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-22  9:06:57
+-- Dump completed on 2023-08-23 15:08:01
