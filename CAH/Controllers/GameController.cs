@@ -26,16 +26,28 @@ namespace CAH.Controllers
         {
             List<WhiteCards> whiteCards = _db.WhiteCards.ToList();
             List<BlackCards> blackCards = _db.BlackCards.ToList();
-            List<RandomWhiteCards> randomWhiteCard = _db.RandomWhiteCard.ToList();
         
             CardsViewModel viewModel = new CardsViewModel
             {
                 WhiteCards = whiteCards,
                 BlackCards = blackCards,
             };
+            
+            var randomWhiteCard1 = whiteCards[random.Next(whiteCards.Count)].Text;
+            var randomWhiteCard2 = whiteCards[random.Next(whiteCards.Count)].Text;
+            var randomWhiteCard3 = whiteCards[random.Next(whiteCards.Count)].Text;
+            var randomWhiteCard4 = whiteCards[random.Next(whiteCards.Count)].Text;
+            var randomWhiteCard5 = whiteCards[random.Next(whiteCards.Count)].Text;
 
-            ViewBag.InitialBlackCard = initialBlackCard[random.Next(blackCards.Count)];
-            ViewBag.InitialWhiteCard = randomWhiteCard[random.Next(randomWhiteCard.Count)].Text;
+            var randomBlackCard = blackCards[random.Next(blackCards.Count)].Text;
+
+            ViewBag.InitialBlackCard = randomBlackCard;
+            
+            ViewBag.whiteCard1 = randomWhiteCard1;
+            ViewBag.whiteCard2 = randomWhiteCard2;
+            ViewBag.whiteCard3 = randomWhiteCard3;
+            ViewBag.whiteCard4 = randomWhiteCard4;
+            ViewBag.whiteCard5 = randomWhiteCard5;
 
             return View(viewModel);
         }

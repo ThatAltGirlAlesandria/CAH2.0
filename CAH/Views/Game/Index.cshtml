@@ -4,27 +4,44 @@
 
 @using CAH.Models;
 
-<!-- @model CAH.ViewModels.CardsViewModel; -->
+@model CAH.ViewModels.CardsViewModel;
 
 <h1>Censorship Against Humanity</h1>
 
 <br><br>
 
-<!-- <h2 id="card-h2">Random Black Card</h2>
+<h2 id="card-h2">Random Black Card</h2>
 <div class="blackCard">
   <p class="random-card">@ViewBag.InitialBlackCard</p>
-</div> -->
+</div>
 
 
-<!-- <br><br>
+<br><br>
 <h2 id="card-h2">Your Cards</h2>
 
 <div class="whiteCardContainer">
   <div class="whiteCard">
-      <p class="random-card">@ViewBag.InitialWhiteCard</p>
+      <p class="random-card">@ViewBag.whiteCard1</p>
   </div>
-   -->
+</div>
+  
+<div class="hidden">
+  <div class="whiteCardContainer" id="whiteCardContainer2">
+    <div class="whiteCard">
+      <p class="random-card">@ViewBag.whiteCard2</p>
+    </div>
+  </div>
+</div>
 
+<button onclick="showWhiteCard()">Show another white card</button>
+
+<script>
+function showWhiteCard() {
+  var whiteCardContainer = document.getElementById("whiteCardContainer2");
+  whiteCardContainer.classList.remove("hidden");
+}
+
+</script>
 
 <!-- @Html.ActionLink("Add another white card", "Create"); -->
 

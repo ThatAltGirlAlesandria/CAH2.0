@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using CAH.Models;
+using Microsoft.Extensions.Logging;
+using System;
 
 namespace CAH
 {
