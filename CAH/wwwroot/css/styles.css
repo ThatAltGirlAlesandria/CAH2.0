@@ -4,7 +4,7 @@ body {
     /* background: linear-gradient(to bottom, rgb(236, 236, 236), rgb(167, 167, 167)); */
     background: linear-gradient(to bottom right, rgb(210, 152, 200), rgb(184, 136, 218), rgb(141, 141, 220), rgb(118, 187, 201), rgb(79, 243, 153),rgb(240, 250, 92), rgb(244, 171, 99));
     font-family: sans-serif;
-    margin: 0;
+    margin-bottom: 60px;
     padding: 0;
     background-attachment: fixed;
 }
@@ -216,10 +216,11 @@ button {
     color: white;
     /* border: none; */
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 button:hover {
@@ -231,4 +232,4 @@ button:hover {
 
 .hidden {
     display: none;
-  }
+}

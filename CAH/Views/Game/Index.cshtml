@@ -24,38 +24,55 @@
       <p class="random-card">@ViewBag.whiteCard1</p>
   </div>
 </div>
-  
-<div class="hidden">
-  <div class="whiteCardContainer" id="whiteCardContainer2">
+
+<div class="hidden" id="whiteCardContainer2">
+  <div class="whiteCardContainer">
     <div class="whiteCard">
       <p class="random-card">@ViewBag.whiteCard2</p>
     </div>
   </div>
 </div>
 
-<button onclick="showWhiteCard()">Show another white card</button>
+<div class="hidden" id="whiteCardContainer3">
+  <div class="whiteCardContainer">
+    <div class="whiteCard">
+      <p class="random-card">@ViewBag.whiteCard3</p>
+    </div>
+  </div>
+</div>
+
+<div class="hidden" id="whiteCardContainer4">
+  <div class="whiteCardContainer">
+    <div class="whiteCard">
+      <p class="random-card">@ViewBag.whiteCard4</p>
+    </div>
+  </div>
+</div>
+
+<div class="hidden" id="whiteCardContainer5">
+  <div class="whiteCardContainer">
+    <div class="whiteCard">
+      <p class="random-card">@ViewBag.whiteCard5</p>
+    </div>
+  </div>
+</div>
+
+<button onclick="showNextWhiteCard()">Show another white card</button>
 
 <script>
-function showWhiteCard() {
-  var whiteCardContainer = document.getElementById("whiteCardContainer2");
-  whiteCardContainer.classList.remove("hidden");
-}
+var whiteCardContainers = [
+  document.getElementById("whiteCardContainer2"),
+  document.getElementById("whiteCardContainer3"),
+  document.getElementById("whiteCardContainer4"),
+  document.getElementById("whiteCardContainer5")
+];
+var nextWhiteCardIndex = 0;
 
+function showNextWhiteCard() {
+  if (nextWhiteCardIndex < whiteCardContainers.length) {
+    var whiteCardContainer = whiteCardContainers[nextWhiteCardIndex];
+    whiteCardContainer.classList.remove("hidden");
+    nextWhiteCardIndex++;
+  }
+}
 </script>
-
-<!-- @Html.ActionLink("Add another white card", "Create"); -->
-
-<br><br><br>
-<!-- <h2>White Cards</h2>
-@foreach (WhiteCards whiteCards in Model.WhiteCards)
-{
-  <li>@whiteCards.Text</li>
-}
-
-<br><br><br>
-<h2>Black Cards</h2>
-
-@foreach (BlackCards blackCards in Model.BlackCards)
-{
-  <li>@blackCards.Text</li>
-} -->
