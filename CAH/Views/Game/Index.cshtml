@@ -23,31 +23,31 @@
 <div class="whiteCardContainer">
 
   <div class="whiteCard" id="whiteCard1">
-      <p class="random-card">@ViewBag.whiteCard1</p>
+      <p onclick="selectWinner()" class="random-card">@ViewBag.whiteCard1</p>
   </div>
 
   <div class="hidden" id="whiteCardContainer2">
       <div class="whiteCard" id="whiteCard2">
-        <p class="random-card">@ViewBag.whiteCard2</p>
+        <p onclick="selectWinner()" class="random-card">@ViewBag.whiteCard2</p>
       </div>
   </div>
 
 
   <div class="hidden" id="whiteCardContainer3">
       <div class="whiteCard" id="whiteCard3">
-        <p class="random-card">@ViewBag.whiteCard3</p>
+        <p onclick="selectWinner()" class="random-card">@ViewBag.whiteCard3</p>
       </div>
   </div>
 
   <div class="hidden" id="whiteCardContainer4">
       <div class="whiteCard" id="whiteCard4">
-        <p class="random-card">@ViewBag.whiteCard4</p>
+        <p onclick="selectWinner()" class="random-card">@ViewBag.whiteCard4</p>
       </div>
   </div>
 
-  <div class="hidden" id="whiteCardContainer5">
+  <div class="hidden" id="whiteCardContainer5" >
       <div class="whiteCard" id="whiteCard5">
-        <p class="random-card">@ViewBag.whiteCard5</p>
+        <p onclick="selectWinner()" class="winnerCard random-card">@ViewBag.whiteCard5</p>
       </div>
   </div>
 </div>
@@ -56,26 +56,26 @@
 
 <script>
 
-// var whiteCardIds = [
-//   document.getElementById("whiteCard1"),
-//   document.getElementById("whiteCard2"),
-//   document.getElementById("whiteCard3"),
-//   document.getElementById("whiteCard4"),
-//   document.getElementById("whiteCard5"),
-// ];
-// function selectWinner() {
-//   whiteCardIds.forEach(cardId => {
-//     cardId.addEventListener("click", function() {
-//       cardId.classList.add("winner");
+var whiteCardIds = [
+  document.getElementById("whiteCard1"),
+  document.getElementById("whiteCard2"),
+  document.getElementById("whiteCard3"),
+  document.getElementById("whiteCard4"),
+  document.getElementById("whiteCard5"),
+];
+function selectWinner() {
+  whiteCardIds.forEach(cardId => {
+    cardId.addEventListener("click", function() {
+      cardId.classList.add("winner");
 
-//       whiteCardIds.forEach(otherCardId => {
-//         if (otherCardId !== cardId) {
-//           otherCardId.classList.add("hidden");
-//         }
-//       });  
-//     });
-//   });
-// }
+      whiteCardIds.forEach(otherCardId => {
+        if (otherCardId !== cardId) {
+          otherCardId.classList.add("hidden");
+        }
+      });  
+    });
+  });
+}
 
 var whiteCardContainers = [
   document.getElementById("whiteCardContainer2"),
