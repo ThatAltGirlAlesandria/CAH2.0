@@ -64,7 +64,9 @@
 </div>
 
 <button id="showAnotherButton" onclick="showNextWhiteCard()">Draw another white card</button>
-<h2 id="pickWinner" class="hidden">Choose a winning card by clicking on your favorite.</h2>
+<br>
+<br>
+<h2 id="pickWinner">Choose a winning card by clicking on your favorite.</h2>
 <button class="hidden" id="newGameButton">@Html.ActionLink("Start Another Game", "Index", "Game")</button>
 
 <script>
@@ -92,6 +94,7 @@ function selectWinner() {
       cardId.classList.add("winner");
       document.getElementById("card-h2").classList.add("hidden");
       document.getElementById("pickWinner").classList.add("hidden");
+      document.getElementById("newGameButton").classList.remove("hidden"); 
       whiteCardIds.forEach(otherCardId => {
         otherCardId.classList.add("hidden");
       }); 
