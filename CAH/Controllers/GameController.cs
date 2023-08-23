@@ -11,30 +11,31 @@ namespace CAH.Controllers
     public class GameController : Controller
     {
         private readonly CAHContext _db;
+        private readonly string initialBlackCard;
+        private readonly string initialWhiteCard;
+        private readonly Random random = new Random();
+
         public GameController (CAHContext db)
         {
             _db = db;
+            initialBlackCard = _db.BlackCards.FirstOrDefault()?.Text;
+            initialWhiteCard = _db.WhiteCards.FirstOrDefault()?.Text;
         }
 
         public ActionResult Index()
         {
             List<WhiteCards> whiteCards = _db.WhiteCards.ToList();
             List<BlackCards> blackCards = _db.BlackCards.ToList();
-
-            Random random = new Random();
-            var randomWhiteCard1 = whiteCards[random.Next(whiteCards.Count)].Text;
-            var randomWhiteCard2 = whiteCards[random.Next(whiteCards.Count)].Text;
-            var randomBlackCard = blackCards[random.Next(blackCards.Count)].Text;
-
+            List<RandomWhiteCards> randomWhiteCard = _db.RandomWhiteCard.ToList();
+        
             CardsViewModel viewModel = new CardsViewModel
             {
-                WhiteCard1 = randomWhiteCard1,
-                WhiteCard2 = randomWhiteCard2,
-                BlackCard = randomBlackCard,
+                WhiteCards = whiteCards,
+                BlackCards = blackCards,
             };
 
-            // ViewBag.BlackCard = randomBlackCard;
-            // ViewBag.WhiteCard1 = randomWhiteCard1;
+            ViewBag.InitialBlackCard = initialBlackCard[random.Next(blackCards.Count)];
+            ViewBag.InitialWhiteCard = randomWhiteCard[random.Next(randomWhiteCard.Count)].Text;
 
             return View(viewModel);
         }
