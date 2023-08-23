@@ -10,19 +10,22 @@
 
 <br><br>
 
-<!-- <h2 id="card-h2">Random Black Card</h2> -->
-<div class="blackCardContainer">
-  <div class="blackCard">
-    <p class="random-card">@ViewBag.InitialBlackCard</p>
-  </div>
-  <div class="winningCardContainer hidden">
-    <div class="winningCard">
-    <p class="random-card" id="winningCardContent"></p>
+
+
+<!-- THIS WORKS -->
+<div class="win-container">
+  <div class="blackCardContainer">
+    <div class="blackCard">
+      <p class="random-card">@ViewBag.InitialBlackCard</p>
+    </div>
+    <div class="winningCardContainer hidden">
+      <div class="winningCard">
+        <p class="random-card" id="winningCardContent"></p>
+      </div>
     </div>
   </div>
 </div>
-
-
+<!-- THIS WORKS -->
 
 <br><br>
 <h2 id="card-h2">Your Hand</h2>
@@ -73,6 +76,16 @@ var whiteCardIds = [
   document.getElementById("whiteCard4"),
   document.getElementById("whiteCard5"),
 ];
+var whiteCardContainers = [
+  document.getElementById("whiteCardContainer2"),
+  document.getElementById("whiteCardContainer3"),
+  document.getElementById("whiteCardContainer4"),
+  document.getElementById("whiteCardContainer5")
+];
+var nextWhiteCardIndex = 0;
+
+
+
 function selectWinner() {
   whiteCardIds.forEach(cardId => {
     cardId.addEventListener("click", function() {
@@ -80,7 +93,7 @@ function selectWinner() {
       document.getElementById("card-h2").classList.add("hidden");
       document.getElementById("pickWinner").classList.add("hidden");
       whiteCardIds.forEach(otherCardId => {
-          otherCardId.classList.add("hidden");
+        otherCardId.classList.add("hidden");
       }); 
       
       document.getElementById("showAnotherButton").classList.add("hidden");
@@ -91,14 +104,6 @@ function selectWinner() {
     });
   });
 }
-
-var whiteCardContainers = [
-  document.getElementById("whiteCardContainer2"),
-  document.getElementById("whiteCardContainer3"),
-  document.getElementById("whiteCardContainer4"),
-  document.getElementById("whiteCardContainer5")
-];
-var nextWhiteCardIndex = 0;
 
 function showNextWhiteCard() {
   if (nextWhiteCardIndex < whiteCardContainers.length) {
@@ -113,4 +118,5 @@ function showNextWhiteCard() {
     } 
   }
 }
+
 </script>
