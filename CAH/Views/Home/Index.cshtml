@@ -4,6 +4,22 @@
 
 <h1>Censorship Against Humanity</h1>
 
-<div id="game-menu-option" class="whiteCard h4-styled">
-  <h4 class="whitecard">@Html.ActionLink("Start Game", "Index", "Game")</h4>
+<!-- <div id="whiteCardContainer">
+  <div id="game-menu-option" class="whiteCardMenu h4-styled">
+    <h4 class="whitecard">@Html.ActionLink("Start Game", "Index", "Game")</h4>
+  </div>
+</div> -->
+
+<div id="whiteCardContainer">
+    <div id="game-menu-option" class="blackCardMenu h4-styled flip">
+    <!-- <div id="game-menu-option" class="whiteCardMenu h4-styled flip"> -->
+        <div class="card-inner">
+            <div class="card-front">
+                <p class="random-card">Flip this card to ______ .</p>
+            </div>
+            <div class="card-back">
+                <h4 class="random-card">@Html.ActionLink("Start Game", "Index", "Game")</h4>
+            </div>
+        </div>
+    </div>
 </div>

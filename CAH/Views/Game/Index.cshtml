@@ -6,22 +6,13 @@
 
 @model CAH.ViewModels.CardsViewModel;
 
-@{
-  Random random = new Random();
-  var randomBlackCard = Model.BlackCards[random.Next(Model.BlackCards.Count)];
-  var randomWhiteCard1 = Model.WhiteCards[random.Next(Model.WhiteCards.Count)];
-  var randomWhiteCard2 = Model.WhiteCards[random.Next(Model.WhiteCards.Count)];
-}
-
 <h1>Censorship Against Humanity</h1>
 
 <br><br>
 
 <h2 id="card-h2">Random Black Card</h2>
 <div class="blackCard">
-  <!-- <p class="random-card">@randomBlackCard.Text</p> --> 
-  <!-- lmw comment out above -->
-  <p class="random-card">@ViewBag.InitialBlackCard</p>
+  <p class="random-card">@ViewBag.BlackCard</p>
 </div>
 
 
@@ -30,26 +21,11 @@
 
 <div class="whiteCardContainer">
   <div class="whiteCard">
-      <!-- <p class="random-card">@randomWhiteCard.Text</p> -->
-      <!-- lmw comment out above -->
-      <p class="random-card">@ViewBag.InitialWhiteCard</p>
+      <p class="random-card">@ViewBag.WhiteCard1</p>
   </div>
   
 
 
-  @if (TempData["RandomWhiteCard"] != null)
-  {
-      <div class="whiteCard">
-        <p class="random-card">@TempData["RandomWhiteCard"]</p> 
-      </div>  
-  }
-
-</div>
-
-@using (Html.BeginForm("Create", "Game", FormMethod.Post))
-{
-  <button type="submit">Generate second card</button>
-}
 <!-- @Html.ActionLink("Add another white card", "Create"); -->
 
 <br><br><br>

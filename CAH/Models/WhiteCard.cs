@@ -7,5 +7,7 @@ namespace CAH.Models
         public int WhiteCardsId { get; set; }
         public string Text { get; set; }
 
-    }
+        
+    } 
+
 }
