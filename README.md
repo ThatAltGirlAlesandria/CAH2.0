@@ -29,6 +29,7 @@ Alesandria Wild, Casey Hill, Eva Kemp, Jase Grable, Lindsay Warr, Sage Paden
 - EFCore Design
 - EFCore Migration
 - MySql Workbench
+- Markdown
 
 ## **Setup/Installation Requirements** &#x1F4BB;
 
