@@ -1,5 +1,5 @@
 # Censorship Against Humanity
-> Censorship Against Humanity is a censored version of Cards Against Humanity. In its current form, it's a one person game wherein a user can randomly generate a black card and a white card. Black cards have 1-3 blank spaces which are intended to be filled in with the text of the white card. 
+> Censorship Against Humanity is a censored version of Cards Against Humanity. In its current form, it's a one person game. When the user flips over the start game card, a random black and white card are generated. The user can then draw up to four more cards, for a total "hand" of five cards. The user can select a winning card and start another game. 
 
 ## Authors
 Alesandria Wild, Casey Hill, Eva Kemp, Jase Grable, Lindsay Warr, Sage Paden
@@ -7,42 +7,28 @@ Alesandria Wild, Casey Hill, Eva Kemp, Jase Grable, Lindsay Warr, Sage Paden
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
-* [Features](#features)
-* [Screenshots](#screenshots)
 * [Setup](#setup)
-* [Usage](#usage)
 * [Project Status](#project-status)
-* [Room for Improvement](#room-for-improvement)
+* [Known Bugs](#known-bugs)
 * [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
-<!-- * [License](#license) -->
-
+* [License](#license)
 
 ## General Information
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
-
+- The game was created for Team Week 2 at Epicodus. It was built mainly with C# and .NET, with additional JavaScript for functionality.
 
 ## Technologies Used
 - C#/.NET
 - AspNet Core
-- 
-
-
-## Features
-List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
-
-
-## Screenshots
-![Example screenshot](./img/screenshot.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
-
+- JavaScript
+- Git
+- GitHub
+- Microsoft Entity Framework
+- Razor
+- MySql
+- EFCore Design
+- EFCore Migration
+- MySql Workbench
 
 ## **Setup/Installation Requirements** &#x1F4BB;
 
@@ -51,16 +37,15 @@ List the ready features here:
 
 -   Clone this repository to your local machine.
     ```bash
-    $ git clone https://github.com/______
+    $ git clone https://github.com/ThatAltGirlAlesandria/CAH2.0.git
     ```
 -   Open VS Code (or your IDE of choice).
--   Open the top level directory you just cloned.
+-   Open the top level directory `CAH`
 </details>
 <details>
 <summary> Database Setup </summary>
 
--   Use a MySql RDBMS (like MySql Workbench) to import/upload the cah.sql file and create your database.
--   In your CAH Directory, create a file with the name `appsettings.json` and copy and past the following code into this file:
+-   In the `CAH` Directory, create a file with the name `appsettings.json` and copy and paste the following code into this file:
 
     <pre><code>{
         "Logging": {
@@ -71,20 +56,20 @@ List the ready features here:
         },
         "AllowedHosts": "*",
         "ConnectionStrings": {
-            "DefaultConnection": "Server=localhost;Port=3306;cah;uid=[YOUR_UID];pwd=[YOUR_PASSWORD];"
+            "DefaultConnection": "Server=localhost;Port=3306;database=cahdb;uid=[YOUR_UID];pwd=[YOUR_PASSWORD];"
         }
     }</code></pre>
 
 -   Use your personal UID and Password for your db connection and make sure you remove the brackets currently in place.
+-   Run the following commands 
+```bash 
+dotnet ef migrations add InitialMigration
+```
+```bash 
+dotnet ef database update
+```
 
 </details>
-<!--Download the csv and import into MySQL Workbench
-Use Existing Table: change from `efmigrationhistory` to correct table
-Click "ok" for Index out of range
-Click the wrench &#x1F527;
-Switch the drop down to "TEXT" instead of ID
-Configure import settings: change field separator to , and line separator to LF
-null and NULL = yes -->
 
 <details>
 <summary> Finish Setup </summary>
@@ -98,129 +83,45 @@ null and NULL = yes -->
     ```
 
     ```bash
-    $ dotnet ef migrations add Initial
-    ```
-
-    ```bash
-    $ dotnet ef database update
-    ```
-
-    ```bash
     $ dotnet run
     ```
 
-    (or `dotnet watch run` to avoid reloading with edits in real time, and have Swagger open).
+    (or `dotnet watch run` to avoid reloading with edits in real time).
 
--   A web page will automatically open in your browser at port 5000 or 5001
+-   A web page will automatically open in your browser at port 5000 or 5001.
+    -   If the page does not automatically open, check your project's terminal and click the localhost port link or copy and paste the following into your browser: `https://localhost:5001/` or `https://localhost:5001/` depending on what port is being used.
+-   Add your admin password to authorize the program to run.
 </details>
-
-## API
-
-### Query Parameters
-
--   `______`
--   `______`
--   `______`
--   `______`
--   `______`
-
-<br>
-
-### Endpoints
-
-<details>
-<summary><span style="color: rgb(3, 132, 252); font-style: italic;">GET</span></summary>
-
-#### <span style="color: rgb(3, 132, 252); font-style: italic;">GET</span> /api/ <br>
-
-#### <span style="color: rgb(3, 132, 252); font-style: italic;">GET</span> /api/cah/random<br>
-
-#### Query by parameter:
-
-#### <span style="color: rgb(3, 132, 252); font-style: italic;">GET</span> /api/parks?name={name} <br>
-
-#### <span style="color: rgb(3, 132, 252); font-style: italic;">GET</span> /api/parks?state={state} <br>
-
-#### <span style="color: rgb(3, 132, 252); font-style: italic;">GET</span> /api/parks?type={type} <br>
-
-#### <span style="color: rgb(3, 132, 252); font-style: italic;">GET</span> /api/parks?description={keyword} <br>
-
-<br>For example,<span style="color: rgb(3, 132, 252); font-style: italic;">&nbsp;GET&nbsp;</span> `https://localhost:5001/api/Parks?description=murder` will return the result:
-
-<img src="img/description.jpg" alt="example api response" width="300">
-<br>
-</details>
-
-<details>
-<summary><span style="color: green; font-style: italic;">POST</span></summary>
-<br>
-<span style="color: green; font-style: italic;">POST</span> /api/parks
-<br><br>Create a new Park object in the body in JSON format:
-<br><br>
-<img src="img/post.jpg" alt="example api response" width="300"><br>
-**Check for error messages that might fail validation
-<br><br>
-</details>
-
-<details>
-<summary><span style="color: orange; font-style: italic;">PUT</span></summary>
-<br>
-<span style="color: orange; font-style: italic;">PUT</span> /api/parks/{parkId}
-<br><br>
-
-Edit the details of a Park object.
-Always signify the `parkId` of the targeted object <br>For example, to edit Park object with `parkId` 1:<br><span style="color: orange; font-style: italic;">&nbsp;PUT&nbsp;</span> `http://localhost:5000/api/parks/1`:
-
-<img src="img/put.jpg" alt="example api response" width="300">
-<br><br>
-</details>
-<details>
-<summary><span style="color: red; font-style: italic;">DELETE</span></summary>
-<br>
-<span style="color: red; font-style: italic;">DELETE</span> /api/parks/{parkId}
-<br><br>
-
-Delete a Park object.
-Enter the value of the target card object's `cardId`. For example to delete object with cardId 16:
-<br><span style="color: red; font-style: italic;">&nbsp;DELETE&nbsp;</span> `http://localhost:5000/api/___/16`:
-<br><br>
-<img src="img/delete.jpg" alt="example api response" width="300">
-
-</details>
-
-<br>
-
-## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
-
-`write-your-code-here`
-
 
 ## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
+Project is mostly complete. There is hope in the future to make the application into a multi-player game. &#x1F46F;
 
+## Known Bugs
+- Some CSS styling not functioning as expected and may present accessibility issues.
+- There are some typos present on the cards.
 
-
-
+## Acknowledgements
+We would like to acknowledge the creative influence of the renowned card game, Cards Against Humanity, which served as an inspiration for the development of our app. We do not claim any ownership or affiliation with the creators of the original game.
 
 ## Contact
-
 Please contact either<br>
-[thataltgirlalesandria@gmail.com](mailto:thataltgirlalesandria@gmail.com?subject=Hello%20Alesandria,&body=Nice%20job!%20), 
+&#x1F47E; [thataltgirlalesandria@gmail.com](mailto:thataltgirlalesandria@gmail.com?subject=Hello%20Alesandria,&body=Nice%20job!%20) &#x1F47E; 
 
-[caseyfhill1@gmail.com](mailto:caseyfhill1@gmail.com?subject=Hello%20Casey,&body=Nice%20job!%20), 
+&#x1F47B; [caseyfhill1@gmail.com](mailto:caseyfhill1@gmail.com?subject=Hello%20Casey,&body=Nice%20job!%20) &#x1F480;
 
-[eva.j.kemp@gmail.com](mailto:eva.j.kemp@gmail.com?subject=Hello%20Eva,&body=Nice%20job!%20), 
+&#x1F483; [eva.j.kemp@gmail.com](mailto:eva.j.kemp@gmail.com?subject=Hello%20Eva,&body=Nice%20job!%20) &#x1F483;
 
-[jase.grable@gmail.com](mailto:jase.grable@gmail.com.com?subject=Hello%20Jase,&body=Nice%20job!%20)
+&#x1F341; [jase.grable@gmail.com](mailto:jase.grable@gmail.com.com?subject=Hello%20Jase,&body=Nice%20job!%20) &#x1F341;
 
-[iamalion@gmail.com](mailto:iamalion@gmail.com.com?subject=Hello%20Lindsay,&body=Nice%20job!%20)
+&#x1F981; [iamalion@gmail.com](mailto:iamalion@gmail.com.com?subject=Hello%20Lindsay,&body=Nice%20job!%20) &#x1F981;
+
+&#x1F448; &#x1F920; &#x1F449; [sagepaden@gmail.com](mailto:sagepaden@gmail.com.com?subject=Hello%20Sage,&body=Nice%20job!%20) &#x1F448;  &#x1F920; &#x1F449;
 
 with any the following:
 
 -   Found bugs &#x1F41E;
--   General Questions
+-   General questions &#x2753;
+-   Concerns about particular cards &#x1F920;
 
 
 
